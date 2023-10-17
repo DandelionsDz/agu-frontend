@@ -1,0 +1,32 @@
+.custom-input-container {
+  outline: none;
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  color: rgb(67, 77, 91);
+  width: 100%;
+  padding: 5px;
+
+  border: 1px solid rgb(218, 226, 237);
+  box-shadow: rgb(229 234 242) 0px 1px 1px inset,
+    rgb(229 234 242 / 60%) 0px 1px 0.5px;
+  background-color: rgb(243, 246, 249);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-input {
+  width: 100%;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  color: rgb(67, 77, 91);
+  background-color: rgb(243, 246, 249);
+  padding: 5px;
+}

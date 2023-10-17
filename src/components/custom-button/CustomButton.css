@@ -1,0 +1,19 @@
+.custom-button {
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    padding: px 15px;
+    margin: 0;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 3px #d3e7ff;
+    font-size: 14px;
+    color: white;
+    background-color: #0095ff;
+}
+
+.custom-button:active {
+
+    transform: translateY(4px);
+    box-shadow: 0 1px #666;
+}
