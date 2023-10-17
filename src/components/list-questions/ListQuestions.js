@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Box } from "@mui/material";
+
 import Question from "./Question";
 
 function ListQuestion() {
@@ -11,7 +12,7 @@ function ListQuestion() {
         queryKey: ["questions"],
         queryFn: () =>
             fetch(
-                "https://psychic-space-sniffle-p6g4x5v5g4x3rxv9-3000.app.github.dev/question"
+                "https://stunning-waddle-xqxjp4w4qpwfp4xp-3000.app.github.dev/question"
             ).then((res) => res.json()),
     });
 

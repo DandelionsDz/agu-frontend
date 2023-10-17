@@ -8,6 +8,9 @@ import {
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import { useQuery } from "@tanstack/react-query";
 
+import TextBlock from "../../utils/ai.answer.util.js";
+import CircleLogo from "../../components/CircleLogo.js";
+
 const gradient =
     "radial-gradient( circle farthest-corner at 10% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90% );";
 
@@ -20,9 +23,10 @@ function AIAnswer({ title, content, id }) {
         queryKey: ["ai-answer", id],
         queryFn: () =>
             fetch(
-                `https://psychic-space-sniffle-p6g4x5v5g4x3rxv9-3000.app.github.dev/ai/?prompt=${content}`
+                `https://stunning-waddle-xqxjp4w4qpwfp4xp-3000.app.github.dev/ai/?prompt=${content}`
             ).then((res) => res.json()),
     });
+
     return (
         <Accordion sx={{ boxShadow: "none" }}>
             <AccordionSummary
@@ -44,12 +48,16 @@ function AIAnswer({ title, content, id }) {
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
-                <pre></pre>
-                <Typography sx={{ fontFamily: "monosapce" }}>
-                    {isLoading
-                        ? "AI is thinking about your question..."
-                        : answer?.message}
-                </Typography>
+                <div>
+                    <pre></pre>
+                    {isLoading ? (
+                        "AI is thinking about your question..."
+                    ) : (
+                        <>
+                            <TextBlock>{answer?.message}</TextBlock>
+                        </>
+                    )}
+                </div>
             </AccordionDetails>
         </Accordion>
     );
