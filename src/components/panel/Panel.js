@@ -27,7 +27,7 @@ function Panel() {
                 <Box
                     sx={{
                         display: "flex",
-                        justifyContent: "end",
+                        justifyContent: "flex-end",
                         alignItems: "center",
                         width: { xs: "30%", sm: "70%" },
                     }}

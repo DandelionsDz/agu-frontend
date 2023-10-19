@@ -1,8 +1,10 @@
 import { Box, Typography, Button, Container } from "@mui/material";
-import AIAnswer from "./AIAnswer";
+import AIAnswer from "../../components/ai-answer/AIAnswer";
 import HumanAnswer from "./HumanAnswer";
 import CustomButton from "../../components/custom-button/CustomButton";
 import { useLocation } from "react-router-dom";
+import AskingPanel from "../../components/asking-panel/AskingPanel";
+import { useState } from "react";
 const titleTextColor = "#3b4045";
 const subTextColor = "#6a737c";
 const borderColor = "#e3e6e8";
@@ -14,10 +16,16 @@ function DetailQuestion() {
         state: { title, content, votes, answers, views, id },
     } = useLocation();
 
+    let [isAnswering, setIsAnswering] = useState(false);
+
     return (
         <Container sx={{ width: "100%", height: "100%", paddingTop: "20px" }}>
             <Box>
-                <Typography fontSize={"18px"} color={titleTextColor}>
+                <Typography
+                    fontSize={"18px"}
+                    padding={"8px 0px"}
+                    color={titleTextColor}
+                >
                     {title}
                 </Typography>
                 <Box
@@ -32,7 +40,7 @@ function DetailQuestion() {
                     <Typography>Today </Typography>
                 </Box>
 
-                <Box padding={"10px"}>{content}</Box>
+                <Box padding={"20px 10px"}>{content}</Box>
 
                 <Box>
                     <Box sx={{ width: "50%", display: "flex" }}>
@@ -85,7 +93,11 @@ function DetailQuestion() {
                         height: "10%",
                     }}
                 >
-                    <Box borderTop={`1px solid ${borderColor}`} width={"100%"}>
+                    <Box
+                        paddingBottom={"20px"}
+                        borderTop={`1px solid ${borderColor}`}
+                        width={"100%"}
+                    >
                         <Box
                             sx={{
                                 display: "flex",
@@ -99,8 +111,14 @@ function DetailQuestion() {
                             >
                                 All Answers{" "}
                             </Typography>
-                            <CustomButton>Answers</CustomButton>
+                            <CustomButton
+                                onClick={() => setIsAnswering(!isAnswering)}
+                            >
+                                Answers
+                            </CustomButton>
                         </Box>
+
+                        {isAnswering && <AskingPanel isAnswering={true} />}
 
                         {answers?.length > 0
                             ? answers.map((answer) => {

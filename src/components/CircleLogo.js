@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 function CircleLogo() {
     return (
-        <Box display={"flex"} flexDirection={"row"} justifyContent={"end"}>
+        <Box display={"flex"} flexDirection={"row"} justifyContent={"flex-end"}>
             <Typography
                 width={"6px"}
                 height={"6px"}

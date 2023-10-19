@@ -17,7 +17,7 @@ function HumanAnswer({ answer }) {
                 <Box
                     sx={{
                         display: "flex",
-                        justifyContent: "end",
+                        justifyContent: "flex-end",
                         alignItems: "center",
                         paddingX: "5px",
                     }}

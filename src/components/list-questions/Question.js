@@ -1,9 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import SolvingStatus from "./SolvingStatus";
 const subTextColor = "#6a737c";
 const titleTextColor = "#0074CC";
 const subContentLimit = 200;
-function Question({ title, content, votes, answers, views, id }) {
+function Question({ title, content, isSolved, answers, views, id }) {
     let subsContent = content.substring(0, subContentLimit) + "...";
     return (
         <>
@@ -26,7 +27,7 @@ function Question({ title, content, votes, answers, views, id }) {
                         alignItems: "center",
                     }}
                 >
-                    <Typography>Solved</Typography>
+                    <SolvingStatus isSolved={isSolved} />
                     <Typography color={subTextColor} paddingX={"8px"}>
                         {" "}
                         {answers.length} answers
@@ -44,7 +45,7 @@ function Question({ title, content, votes, answers, views, id }) {
                 >
                     <Link
                         to={`detail-question/${id}`}
-                        state={{ title, content, votes, answers, views, id }}
+                        state={{ title, content, isSolved, answers, views, id }}
                     >
                         <Typography
                             sx={{ cursor: "pointer" }}
@@ -63,7 +64,7 @@ function Question({ title, content, votes, answers, views, id }) {
                                     color: "#6A737C",
                                     fontSize: "12px",
                                     display: "flex",
-                                    justifyContent: "end",
+                                    justifyContent: "flex-end",
                                     alignItems: "center",
                                 }}
                             >

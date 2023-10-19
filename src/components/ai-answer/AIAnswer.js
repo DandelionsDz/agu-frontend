@@ -3,13 +3,14 @@ import {
     Accordion,
     AccordionDetails,
     AccordionSummary,
+    Box,
+    Button,
     Typography,
 } from "@mui/material";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import { useQuery } from "@tanstack/react-query";
 
-import TextBlock from "../../utils/ai.answer.util.js";
-import CircleLogo from "../../components/CircleLogo.js";
+import AnswerWrapper from "./AnswerWrapper.js";
 
 const gradient =
     "radial-gradient( circle farthest-corner at 10% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90% );";
@@ -51,10 +52,20 @@ function AIAnswer({ title, content, id }) {
                 <div>
                     <pre></pre>
                     {isLoading ? (
-                        "AI is thinking about your question..."
+                        <pre>AI is thinking about your question...</pre>
                     ) : (
                         <>
-                            <TextBlock>{answer?.message}</TextBlock>
+                            <AnswerWrapper>{answer?.answer}</AnswerWrapper>
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    justifyContent: "flex-end",
+                                }}
+                            >
+                                <Button variant="contained" disabled>
+                                    Ask more
+                                </Button>
+                            </Box>
                         </>
                     )}
                 </div>
