@@ -1,9 +1,19 @@
-import { Alert, Box, Paper } from "@mui/material";
-import Editor from "../editor/Editor";
-import CustomButton from "../custom-button/CustomButton";
-import MajorFilter from "../MajorFiler";
+import { Paper } from "@mui/material";
+import { useEffect, useState } from "react";
+import Preview from "./Preview";
+import Process from "./Process";
+import Typing from "./Typing";
+import Submitter from "./Submitter";
+import Commit from "./Commit";
 
-function AskingPanel() {
+function AskingPanel({ isAnswering, store }) {
+    let [step, setStep] = useState(0);
+
+    useEffect(() => {
+        if (step == 3) {
+        }
+    }, [step]);
+
     return (
         <Paper
             elevation={2}
@@ -17,18 +27,17 @@ function AskingPanel() {
                 marginY: "15px",
             }}
         >
-            <Alert sx={{ marginY: "8px" }} severity="warning">
-                Không được đăng câu hỏi không liên quan đến chủ đề học tập, nội
-                dung nhạy cảm, vi phạm pháp luật.
-            </Alert>
-            <MajorFilter />
-            <Editor />
-            <br />
-            <Box sx={{ display: "flex", justifyContent: "end" }}>
-                <CustomButton padding="10px 5px" width="fit-content">
-                    SUBMIT
-                </CustomButton>
-            </Box>
+            <Process step={step} />
+
+            {
+                {
+                    0: <Typing store={store} isAnswering={isAnswering} />,
+                    1: <Preview />,
+                    2: <Commit />,
+                }[step]
+            }
+
+            <Submitter step={step} setStep={setStep} />
         </Paper>
     );
 }

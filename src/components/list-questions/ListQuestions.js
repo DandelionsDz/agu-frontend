@@ -1,28 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import { Box } from "@mui/material";
 import Question from "./Question";
+import useQuestion from "../../hooks/useQuestion";
 
 function ListQuestion() {
-    const {
-        isLoading,
-        error,
-        data: questions,
-    } = useQuery({
-        queryKey: ["questions"],
-        queryFn: () =>
-            fetch(
-                "https://psychic-space-sniffle-p6g4x5v5g4x3rxv9-3000.app.github.dev/question"
-            ).then((res) => res.json()),
-    });
+    const { isLoading, error, questions } = useQuestion();
 
     if (isLoading) return "Loading...";
 
     if (error) return "An error has occurred: " + error.message;
 
     return (
-        <Box>
+        <Box paddingBottom={"10px"}>
             {questions?.map((question, index) => (
-                <Question {...question} />
+                <Question key={question.id} {...question} />
             ))}
         </Box>
     );

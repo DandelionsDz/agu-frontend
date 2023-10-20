@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import CircleLogo from "../../components/CircleLogo";
 const borderColor = "#e3e6e8";
 const subTextColor = "#6a737c";
 function HumanAnswer({ answer }) {
@@ -16,7 +17,7 @@ function HumanAnswer({ answer }) {
                 <Box
                     sx={{
                         display: "flex",
-                        justifyContent: "end",
+                        justifyContent: "flex-end",
                         alignItems: "center",
                         paddingX: "5px",
                     }}
@@ -29,24 +30,7 @@ function HumanAnswer({ answer }) {
                     >
                         answered Aug 2, 2008 at 18:22
                     </Typography>
-                    <Typography
-                        width={"6px"}
-                        height={"6px"}
-                        borderRadius={"50%"}
-                        sx={{ background: "#ffcc01" }}
-                    ></Typography>
-                    <Typography
-                        width={"6px"}
-                        height={"6px"}
-                        borderRadius={"50%"}
-                        sx={{ background: "#6a737c" }}
-                    ></Typography>
-                    <Typography
-                        width={"6px"}
-                        height={"6px"}
-                        borderRadius={"50%"}
-                        sx={{ background: "#e3e6e8" }}
-                    ></Typography>
+                    <CircleLogo />
                 </Box>
             </Box>
         </Box>

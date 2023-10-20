@@ -3,7 +3,7 @@ import "./CustomButton.css";
 function CustomButton({ children, onClick, ...props }) {
     return (
         <button
-            onClick={() => onClick()}
+            onClick={() => (onClick ? onClick() : () => {})}
             className="custom-button"
             style={props}
         >
