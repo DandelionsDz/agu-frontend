@@ -6,7 +6,10 @@ import { useState } from "react";
 import CustomInput from "../custom-input/CustomInput";
 import AskingPanel from "../asking-panel/AskingPanel";
 import { Link } from "react-router-dom";
+import Searcher from "./Searcher";
+import useSearchQuery from "../../stores/panel/store";
 function Panel() {
+    let filterStore = useSearchQuery();
     return (
         <Paper
             elevation={2}
@@ -22,7 +25,7 @@ function Panel() {
         >
             <Box display={"flex"}>
                 <Box sx={{ width: { xs: "70%", sm: "50%" } }}>
-                    <MajorFilter />
+                    <MajorFilter store={filterStore} />
                 </Box>
                 <Box
                     sx={{
@@ -51,7 +54,7 @@ function Panel() {
                     alignItems: "center",
                 }}
             >
-                <CustomInput />
+                <Searcher />
             </Box>
         </Paper>
     );

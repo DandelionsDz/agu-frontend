@@ -9,11 +9,9 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-function MajorFilter() {
-    const [major, setMajor] = useState("");
-
+function MajorFilter({ store }) {
     const handleChange = (event) => {
-        setMajor(event.target.value);
+        store.setMajor(event.target.value);
     };
 
     return (
@@ -24,7 +22,7 @@ function MajorFilter() {
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={major}
+                        value={store.data.major}
                         label="Major"
                         onChange={handleChange}
                     >
