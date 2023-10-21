@@ -1,10 +1,12 @@
 import { Box, Typography } from "@mui/material";
+import Tag from "../../components/asking-panel/Tag";
+import HtmlContentViewer from "./HtmlContentViewer";
 
 const titleTextColor = "#3b4045";
 const subTextColor = "#6a737c";
 const borderColor = "#e3e6e8";
 
-function Content({ title, content }) {
+function Content({ title, content, tags }) {
     return (
         <Box>
             <Typography
@@ -26,37 +28,9 @@ function Content({ title, content }) {
                 <Typography>Today </Typography>
             </Box>
 
-            <Box padding={"20px 10px"}>{content}</Box>
+            <HtmlContentViewer body={content} />
 
-            <Box>
-                <Box sx={{ width: "50%", display: "flex" }}>
-                    <Typography paddingRight={"5px"} color={subTextColor}>
-                        tags:{" "}
-                    </Typography>
-                    <Typography
-                        sx={{
-                            background: "#E1ECF4",
-                            color: "#39739D",
-                            padding: "2px 5px",
-                            marginRight: "5px",
-                            borderRadius: "5px",
-                        }}
-                    >
-                        java
-                    </Typography>
-                    <Typography
-                        sx={{
-                            background: "#E1ECF4",
-                            color: "#39739D",
-                            padding: "2px 5px",
-                            marginRight: "5px",
-                            borderRadius: "5px",
-                        }}
-                    >
-                        c++
-                    </Typography>
-                </Box>
-            </Box>
+            <Tag tags={tags} />
         </Box>
     );
 }

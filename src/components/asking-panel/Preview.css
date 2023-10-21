@@ -1,0 +1,24 @@
+.content-preview {
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.content-preview p {
+    overflow-wrap: anywhere;
+}
+
+.content-preview div {
+    width: 100%;
+}
+
+.content-preview code {
+    width: 100%;
+    white-space: break-spaces !important;
+}
+
+.content-preview pre {
+    width: 100%;
+}

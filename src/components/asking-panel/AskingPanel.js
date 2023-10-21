@@ -32,7 +32,7 @@ function AskingPanel({ isAnswering, store }) {
             {
                 {
                     0: <Typing store={store} isAnswering={isAnswering} />,
-                    1: <Preview />,
+                    1: <Preview isAnswering={isAnswering} store={store} />,
                     2: <Commit />,
                 }[step]
             }

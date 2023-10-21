@@ -48,7 +48,9 @@ function Comment({ answers }) {
 
                 {answers?.length > 0
                     ? answers.map((answer) => {
-                          return <HumanAnswer answer={answer} />;
+                          return (
+                              <HumanAnswer key={answer.id} answer={answer} />
+                          );
                       })
                     : "There is no answer yet"}
             </Box>

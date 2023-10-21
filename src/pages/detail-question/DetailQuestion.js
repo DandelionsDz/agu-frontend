@@ -6,15 +6,15 @@ import Comment from "./Comment";
 
 function DetailQuestion() {
     let {
-        state: { title, content, votes, answers, views, id },
+        state: { title, content, tags, answers, views, id },
     } = useLocation();
 
     return (
         <Container sx={{ width: "100%", height: "100%", paddingTop: "20px" }}>
             <Box>
-                <Content title={title} content={content} />
+                <Content tags={tags} title={title} content={content.html} />
 
-                <AIAnswer title={title} content={content} id={id} />
+                <AIAnswer title={title} content={content.text} id={id} />
 
                 <Comment answers={answers} />
             </Box>

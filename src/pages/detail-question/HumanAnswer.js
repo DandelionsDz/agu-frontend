@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import CircleLogo from "../../components/CircleLogo";
+import HtmlContentViewer from "./HtmlContentViewer";
 const borderColor = "#e3e6e8";
 const subTextColor = "#6a737c";
 function HumanAnswer({ answer }) {
@@ -11,7 +12,7 @@ function HumanAnswer({ answer }) {
                 borderRadius={"5px"}
             >
                 <Box sx={{ padding: "5px" }}>
-                    <Typography>{answer.content}</Typography>
+                    <HtmlContentViewer body={answer.content} />
                 </Box>
 
                 <Box

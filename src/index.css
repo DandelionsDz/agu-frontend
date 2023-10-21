@@ -41,7 +41,10 @@ h3 {
     font-size: 17px;
 }
 
-p,h1,h2,h3 {
+p,
+h1,
+h2,
+h3 {
     margin: 0;
     padding: 0;
 }
@@ -52,4 +55,8 @@ pre {
 
 a {
     text-decoration: none;
+}
+
+img {
+    max-width: 100%;
 }

@@ -4,8 +4,8 @@ import SolvingStatus from "./SolvingStatus";
 const subTextColor = "#6a737c";
 const titleTextColor = "#0074CC";
 const subContentLimit = 200;
-function Question({ title, content, isSolved, answers, views, id }) {
-    let subsContent = content.substring(0, subContentLimit) + "...";
+function Question({ title, content, isSolved, tags, answers, views, id }) {
+    let subsContent = content.text.substring(0, subContentLimit) + "...";
     return (
         <>
             <Box
@@ -45,7 +45,15 @@ function Question({ title, content, isSolved, answers, views, id }) {
                 >
                     <Link
                         to={`detail-question/${id}`}
-                        state={{ title, content, isSolved, answers, views, id }}
+                        state={{
+                            title,
+                            content,
+                            tags,
+                            isSolved,
+                            answers,
+                            views,
+                            id,
+                        }}
                     >
                         <Typography
                             sx={{ cursor: "pointer" }}

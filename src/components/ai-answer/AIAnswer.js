@@ -9,9 +9,8 @@ import {
 } from "@mui/material";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import { useQuery } from "@tanstack/react-query";
-
 import AnswerWrapper from "./AnswerWrapper.js";
-
+import { baseServer } from "../../consts/server.js";
 const gradient =
     "radial-gradient( circle farthest-corner at 10% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90% );";
 const borderColor = "#e3e6e8";
@@ -23,9 +22,9 @@ function AIAnswer({ title, content, id }) {
     } = useQuery({
         queryKey: ["ai-answer", id],
         queryFn: () =>
-            fetch(
-                `https://stunning-waddle-xqxjp4w4qpwfp4xp-3000.app.github.dev/ai/?prompt=${content}`
-            ).then((res) => res.json()),
+            fetch(`${baseServer}/ai/?prompt=${content}`).then((res) =>
+                res.json()
+            ),
     });
 
     return (

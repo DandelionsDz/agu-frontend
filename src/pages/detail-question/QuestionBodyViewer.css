@@ -1,0 +1,24 @@
+.question-body-viewer {
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.question-body-viewer p {
+    overflow-wrap: anywhere;
+}
+
+.question-body-viewer div {
+    width: 100%;
+}
+
+.question-body-viewer code {
+    width: 100%;
+    white-space: break-spaces !important;
+}
+
+.question-body-viewer pre {
+    width: 100%;
+}

@@ -5,6 +5,7 @@ const useDataStore = create((set) => ({
         text: "",
         html: "",
         major: "ksp",
+        tags: [],
     },
     setData: (data) =>
         set((state) => ({
@@ -15,6 +16,13 @@ const useDataStore = create((set) => ({
             data: {
                 ...state.data,
                 major,
+            },
+        })),
+    setTags: (tags) =>
+        set((state) => ({
+            data: {
+                ...state.data,
+                tags,
             },
         })),
 }));

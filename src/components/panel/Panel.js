@@ -2,9 +2,8 @@ import { Box } from "@mui/system";
 import CustomButton from "../custom-button/CustomButton";
 import MajorFilter from "../MajorFiler";
 import { Paper, Typography } from "@mui/material";
-import { useState } from "react";
-import CustomInput from "../custom-input/CustomInput";
-import AskingPanel from "../asking-panel/AskingPanel";
+import SendIcon from "@mui/icons-material/Send";
+import EditNoteIcon from "@mui/icons-material/EditNote";
 import { Link } from "react-router-dom";
 import Searcher from "./Searcher";
 import useSearchQuery from "../../stores/panel/store";
@@ -35,11 +34,18 @@ function Panel() {
                         width: { xs: "30%", sm: "70%" },
                     }}
                 >
-                    <CustomButton height="auto" padding="8px 10px">
-                        <Link to="post-question">
-                            <Typography color={"white"}>
-                                Ask a question
-                            </Typography>
+                    <CustomButton height="auto">
+                        <Link
+                            style={{ display: "flex", padding: "8px 5px" }}
+                            to="post-question"
+                        >
+                            <Typography color={"white"}>Ask</Typography>
+                            <EditNoteIcon
+                                sx={{
+                                    margin: "0px 0px 0px 5px",
+                                    color: "white",
+                                }}
+                            />
                         </Link>
                     </CustomButton>
                 </Box>

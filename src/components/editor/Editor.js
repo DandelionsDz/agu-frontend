@@ -11,6 +11,7 @@ const modules = {
 };
 
 function Editor({ store: dataStore }) {
+    console.log(dataStore.data.html);
     const onChange = (content, delta, source, editor) => {
         dataStore.setData({ html: content, text: editor.getText() });
     };

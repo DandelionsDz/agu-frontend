@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { baseServer } from "../consts/server";
 
 function useQuestion() {
     const {
@@ -9,7 +10,7 @@ function useQuestion() {
         queryKey: ["questions"],
         queryFn: () =>
             fetch(
-                "https://stunning-waddle-xqxjp4w4qpwfp4xp-3000.app.github.dev/question"
+                `${baseServer}/question`
             ).then((res) => res.json()),
     });
 
