@@ -1,14 +1,15 @@
-import { useQuery } from "@tanstack/react-query";
 import { Box } from "@mui/material";
 import Question from "./Question";
-import useQuestion from "../../hooks/useQuestion";
+import useQuestion from "../../hooks/detail-question/useQuestion";
+import Loading from "../../pages/main-layout/Loading";
+import Error from "../../pages/main-layout/Error";
 
 function ListQuestion() {
     const { isLoading, error, questions } = useQuestion();
 
-    if (isLoading) return "Loading...";
+    if (isLoading) return <Loading />;
 
-    if (error) return "An error has occurred: " + error.message;
+    if (error) return <Error />;
 
     return (
         <Box paddingBottom={"10px"}>

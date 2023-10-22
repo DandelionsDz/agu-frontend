@@ -1,11 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import Tag from "../../components/asking-panel/Tag";
 import HtmlContentViewer from "./HtmlContentViewer";
-
-const titleTextColor = "#3b4045";
-const subTextColor = "#6a737c";
-const borderColor = "#e3e6e8";
-
+import { borderColor, subTextColor, titleTextColor } from "../../utils/colors";
 function Content({ title, content, tags }) {
     return (
         <Box>

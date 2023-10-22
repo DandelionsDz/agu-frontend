@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { baseServer } from "../consts/server";
+import { baseServer } from "../../consts/server";
 
 function useQuestion() {
     const {
@@ -9,9 +9,7 @@ function useQuestion() {
     } = useQuery({
         queryKey: ["questions"],
         queryFn: () =>
-            fetch(
-                `${baseServer}/question`
-            ).then((res) => res.json()),
+            fetch(`${baseServer}/question`).then((res) => res.json()),
     });
 
     return { isLoading, error, questions };

@@ -3,6 +3,7 @@ import MainLayout from "../pages/main-layout/MainLayout";
 import DetailQuestion from "../pages/detail-question/DetailQuestion";
 import App from "../App";
 import PostQuestion from "../pages/post-question/PostQuestion";
+import Welcome from "../pages/welcome/Welcome";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
+                element: <Welcome />,
+            },
+            {
+                path: "/home",
                 element: <MainLayout />,
             },
             {

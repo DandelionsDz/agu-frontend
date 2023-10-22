@@ -23,12 +23,12 @@ function TagTyping() {
                     value={dataStore.data.tags}
                     onChange={(e) => dataStore.setTags(e.value)}
                     onFocus={() => setLabel("tags")}
-                    onBlur={() =>
+                    onBlur={(e) =>
                         dataStore.data.tags.length === 0 &&
                         setLabel("thêm tag như môn học, giáo viên...")
                     }
                 />
-                <label htmlFor="tags">{label}</label>
+                <label htmlFor="tags"></label>
             </span>
         </Box>
     );

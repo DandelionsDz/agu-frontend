@@ -1,8 +1,9 @@
 import { Alert, Box } from "@mui/material";
 import "./Preview.css";
 import CodeBlock from "../ai-answer/CodeBlock";
-import { unescape } from "html-escaper";
+import { escape, unescape } from "html-escaper";
 import Tag from "./Tag";
+import TagTyping from "./TagTyping";
 function Preview({ store, isAnswering }) {
     let htmlContent = store.data.html;
     console.log(htmlContent);
@@ -30,14 +31,17 @@ function Preview({ store, isAnswering }) {
             <div className="content-preview">
                 <br />
                 {htmlElements.map((element, index) => {
-                    element = unescape(element).replace(/&nbsp;/g, " ");
+                    let unescapedElement = unescape(element).replace(
+                        /&nbsp;/g,
+                        " "
+                    );
                     return (
                         <div key={index}>
                             {element.includes("ql-syntax") ? (
                                 <CodeBlock key={index} language={"css"}>
-                                    {element.substring(
-                                        element.indexOf(">") + 1,
-                                        element.lastIndexOf("<")
+                                    {unescapedElement.substring(
+                                        unescapedElement.indexOf(">") + 1,
+                                        unescapedElement.lastIndexOf("<")
                                     )}
                                 </CodeBlock>
                             ) : (
@@ -55,7 +59,12 @@ function Preview({ store, isAnswering }) {
                         </div>
                     );
                 })}
-                {isAnswering || <Tag tags={store.data.tags} />}
+                {isAnswering || (
+                    <>
+                        <Tag tags={store.data.tags} />
+                        <TagTyping />
+                    </>
+                )}
             </div>
         </Box>
     );

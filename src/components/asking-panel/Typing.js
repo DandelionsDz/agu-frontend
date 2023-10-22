@@ -1,7 +1,6 @@
 import { Alert, Box } from "@mui/material";
 import Editor from "../editor/Editor";
 import MajorFilter from "../MajorFiler";
-import TagTyping from "./TagTyping";
 function Typing({ isAnswering, store }) {
     return (
         <Box>
@@ -13,7 +12,6 @@ function Typing({ isAnswering, store }) {
 
             {isAnswering || (
                 <>
-                    <TagTyping />
                     <MajorFilter store={store} />
                 </>
             )}

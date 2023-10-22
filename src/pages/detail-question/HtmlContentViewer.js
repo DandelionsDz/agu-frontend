@@ -14,15 +14,18 @@ function HtmlContentViewer({ body }) {
     return (
         <div className="question-body-viewer">
             {htmlElements.map((element, index) => {
-                element = unescape(element).replace(/&nbsp;/g, " ");
+                let unescapedELement = unescape(element).replace(
+                    /&nbsp;/g,
+                    " "
+                );
                 const seperator = index < htmlElements.length - 1 ? <br /> : "";
                 return (
                     <div key={index}>
                         {element.includes("ql-syntax") ? (
                             <CodeBlock key={index} language={"css"}>
-                                {element.substring(
-                                    element.indexOf(">") + 1,
-                                    element.lastIndexOf("<")
+                                {unescapedELement.substring(
+                                    unescapedELement.indexOf(">") + 1,
+                                    unescapedELement.lastIndexOf("<")
                                 )}
                             </CodeBlock>
                         ) : (
