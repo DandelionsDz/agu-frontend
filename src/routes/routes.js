@@ -4,14 +4,16 @@ import DetailQuestion from "../pages/detail-question/DetailQuestion";
 import App from "../App";
 import PostQuestion from "../pages/post-question/PostQuestion";
 import Welcome from "../pages/welcome/Welcome";
+import ErrorPage from "../pages/error-page/ErrorPage";
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
-                element: <Welcome />,
+                element: <MainLayout />,
             },
             {
                 path: "/home",

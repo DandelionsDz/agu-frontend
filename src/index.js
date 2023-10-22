@@ -7,6 +7,7 @@ import routes from "./routes/routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PrimeReactProvider } from "primereact/api";
 import "primereact/resources/themes/lara-light-blue/theme.css";
+
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
