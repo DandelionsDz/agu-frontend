@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
     Accordion,
     AccordionDetails,
@@ -7,13 +6,16 @@ import {
     Button,
     Typography,
 } from "@mui/material";
-import PsychologyIcon from "@mui/icons-material/Psychology";
+
 import { useQuery } from "@tanstack/react-query";
 import AnswerWrapper from "./AnswerWrapper.js";
 import { baseServer } from "../../consts/server.js";
+import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import { borderColor } from "../../utils/colors.js";
+
 const gradient =
     "radial-gradient( circle farthest-corner at 10% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90% );";
-const borderColor = "#e3e6e8";
+
 function AIAnswer({ title, content, id }) {
     let {
         isLoading,
@@ -43,18 +45,29 @@ function AIAnswer({ title, content, id }) {
                         id="panel1a-header"
                         sx={{ borderRadius: "0px" }}
                     >
-                        <PsychologyIcon />
-                        <Typography
-                            sx={{
-                                background: gradient,
-                                padding: "2px 5px",
-                                borderRadius: "5px",
-                                color: "#fff",
-                                fontFamily: "fantsong sans-serif",
-                            }}
-                        >
-                            AI's Answers
-                        </Typography>
+                        <Box sx={{ display: "flex", alignItems: "center" }}>
+                            <img
+                                style={{ borderRadius: "50%" }}
+                                width={"20px"}
+                                height={"20px"}
+                                src="//qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.poe.bots.chatGPTAvatar.png-26-839d23eef4d58ae9.png"
+                            />
+                            <Typography
+                                sx={{ marginLeft: "4px", fontWeight: "bold" }}
+                            >
+                                ChatGPT
+                            </Typography>
+                            <Typography sx={{ margin: "0 4px" }}>•</Typography>
+                            <Typography
+                                sx={{
+                                    color: "#5d5cde",
+                                    fontWeight: "600",
+                                    fontSize: "12px",
+                                }}
+                            >
+                                V4
+                            </Typography>
+                        </Box>
                     </AccordionSummary>
                     <AccordionDetails>
                         <div>
@@ -68,13 +81,43 @@ function AIAnswer({ title, content, id }) {
                                     </AnswerWrapper>
                                     <Box
                                         sx={{
+                                            paddingTop: "10px",
+                                            borderTop: `1px solid ${borderColor}}`,
                                             display: "flex",
                                             justifyContent: "flex-end",
                                         }}
                                     >
-                                        <Button variant="contained" disabled>
-                                            Ask more
-                                        </Button>
+                                        <Box
+                                            sx={{
+                                                width: {
+                                                    xs: "100%",
+                                                    md: "fit-content",
+                                                },
+                                                cursor: "pointer",
+                                            }}
+                                        >
+                                            <Button
+                                                sx={{
+                                                    textTransform: "none",
+                                                    padding: "4px 10px",
+                                                    borderRadius: "20px",
+                                                    border: "1px solid #ccc",
+                                                    color: "#636466",
+                                                }}
+                                            >
+                                                <pre
+                                                    style={{
+                                                        fontSize: "12px",
+                                                        margin: "0",
+                                                        marginRight: "5px",
+                                                    }}
+                                                >
+                                                    Ask More
+                                                </pre>
+
+                                                <ChatBubbleOutlineOutlinedIcon />
+                                            </Button>
+                                        </Box>
                                     </Box>
                                 </>
                             )}

@@ -38,7 +38,7 @@ function Preview({ store, isAnswering }) {
                     return (
                         <div key={index}>
                             {element.includes("ql-syntax") ? (
-                                <CodeBlock key={index} language={"css"}>
+                                <CodeBlock key={index} language={"javascript"}>
                                     {unescapedElement.substring(
                                         unescapedElement.indexOf(">") + 1,
                                         unescapedElement.lastIndexOf("<")

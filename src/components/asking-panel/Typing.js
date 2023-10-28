@@ -4,11 +4,16 @@ import MajorFilter from "../MajorFiler";
 function Typing({ isAnswering, store }) {
     return (
         <Box>
-            <Alert sx={{ marginY: "8px" }} severity="warning">
-                {isAnswering
-                    ? "Trả lời câu hỏi nghiêm túc, nghiêm cấm các nội dung nhạy cảm và vi phạm pháp luật"
-                    : " Không được đăng câu hỏi không liên quan đến chủ đề học tập, nội dung nhạy cảm, vi phạm pháp luật."}
-            </Alert>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Alert
+                    sx={{ width: "fit-content", marginY: "8px" }}
+                    severity="warning"
+                >
+                    {isAnswering
+                        ? "Trả lời câu hỏi nghiêm túc, nghiêm cấm các nội dung spam hoặc không liên quan đến học tập"
+                        : "Không được spam hoặc không liên quan đến học tập"}
+                </Alert>
+            </Box>
 
             {isAnswering || (
                 <>

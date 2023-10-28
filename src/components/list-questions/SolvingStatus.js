@@ -7,7 +7,7 @@ function SolvingStatus({ isSolved }) {
                 width={"8px"}
                 height={"8px"}
                 borderRadius={"50%"}
-                sx={{ background: "#ffcc01" }}
+                sx={{ background: "#018aff" }}
             ></Typography>
         );
     }
@@ -17,7 +17,7 @@ function SolvingStatus({ isSolved }) {
             width={"8px"}
             height={"8px"}
             borderRadius={"50%"}
-            sx={{ background: "#6a737c" }}
+            sx={{ background: "#e3e6e8" }}
         ></Typography>
     );
 }

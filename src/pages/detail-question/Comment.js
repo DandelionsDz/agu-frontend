@@ -4,8 +4,8 @@ import AskingPanel from "../../components/asking-panel/AskingPanel";
 import HumanAnswer from "./HumanAnswer";
 import { useState } from "react";
 import useDetailQuestionStore from "../../stores/detail-question/store";
-
-const borderColor = "#e3e6e8";
+import EditIcon from "@mui/icons-material/Edit";
+import { borderColor } from "../../utils/colors";
 
 function Comment({ answers }) {
     let [isAnswering, setIsAnswering] = useState(false);
@@ -33,12 +33,19 @@ function Comment({ answers }) {
                 >
                     <Typography
                         variant="h6"
-                        sx={{ fontSize: "18px", textAlign: "left" }}
+                        sx={{
+                            fontSize: "18px",
+                            textAlign: "left",
+                            fontWeight: "bold",
+                        }}
                     >
                         All Answers{" "}
                     </Typography>
-                    <CustomButton onClick={() => setIsAnswering(!isAnswering)}>
-                        Answers
+                    <CustomButton
+                        padding="0 15px"
+                        onClick={() => setIsAnswering(!isAnswering)}
+                    >
+                        <EditIcon />
                     </CustomButton>
                 </Box>
 

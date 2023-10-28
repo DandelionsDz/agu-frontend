@@ -1,59 +1,49 @@
-import {
-    Autocomplete,
-    TextField,
-    Box,
-    Select,
-    MenuItem,
-    FormControl,
-    InputLabel,
-} from "@mui/material";
-import { useState } from "react";
-
+import { Box } from "@mui/material";
+import { Select as Selector } from "antd";
 function MajorFilter({ store }) {
-    const handleChange = (event) => {
-        store.setMajor(event.target.value);
+    const handleChange = (value) => {
+        store.setMajor(value);
     };
 
     return (
         <div>
             <Box padding={"10px"}>
-                <FormControl sx={{ width: "100%" }}>
-                    <InputLabel id="demo-simple-select-label">Major</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={store.data.major}
-                        label="Major"
-                        onChange={handleChange}
-                    >
-                        <MenuItem value="ksp">KHOA SƯ PHẠM</MenuItem>
-                        <MenuItem value="knn">
-                            KHOA NÔNG NGHIỆP - TÀI NGUYÊN THIÊN NHIÊN
-                        </MenuItem>
-                        <MenuItem value="kktkd">
-                            KHOA KINH TẾ - QUẢN TRỊ KINH DOANH
-                        </MenuItem>
-                        <MenuItem value="kktcnmt">
-                            KHOA KỸ THUẬT - CÔNG NGHỆ - MÔI TRƯỜNG
-                        </MenuItem>
-                        <MenuItem value="kcntt">
-                            KHOA CÔNG NGHỆ THÔNG TIN
-                        </MenuItem>
-                        <MenuItem value="knn">KHOA NGOẠI NGỮ</MenuItem>
-                        <MenuItem value="kl">
-                            KHOA LUẬT VÀ KHOA HỌC CHÍNH TRỊ
-                        </MenuItem>
-                        <MenuItem value="kdl">
-                            KHOA DU LỊCH VÀ VĂN HÓA NGHỆ THUẬT
-                        </MenuItem>
-                        <MenuItem value="gdtc">
-                            BỘ MÔN GIÁO DỤC THỂ CHẤT
-                        </MenuItem>
-                        <MenuItem value="gdqp">
-                            BỘ MÔN GIÁO DỤC QUỐC PHÒNG
-                        </MenuItem>
-                    </Select>
-                </FormControl>
+                <Selector
+                    onChange={handleChange}
+                    defaultValue="ksp"
+                    style={{ width: "100%", textAlign: "center" }}
+                    options={[
+                        { value: "ksp", label: "Khoa Sư Phạm" },
+                        {
+                            value: "knntntn",
+                            label: "Khoa Nông Nghiệp - Tài Nguyên Thiên Nhiên",
+                        },
+                        {
+                            value: "kktkd",
+                            label: "Khoa Kinh Tế - Quản Trị Kinh Doanh",
+                        },
+                        {
+                            value: "kktcnmt",
+                            label: "Khoa Kỹ Thuật - Công Nghệ - Môi Trường",
+                        },
+                        {
+                            value: "kcntt",
+                            label: "Khoa Công Nghệ Thông Tin",
+                        },
+                        {
+                            value: "knn",
+                            label: "Khoa Ngoại Ngữ",
+                        },
+                        {
+                            value: "kl",
+                            label: "Khoa Luật và Khoa Học Chính Trị",
+                        },
+                        {
+                            value: "kdl",
+                            label: "Khoa Du Lịch Và Văn Hóa Nghệ Thuật",
+                        },
+                    ]}
+                />
             </Box>
         </div>
     );

@@ -1,8 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import SolvingStatus from "./SolvingStatus";
-const subTextColor = "#6a737c";
-const titleTextColor = "#0074CC";
+import { titleTextColor, subTextColor, borderColor } from "../../utils/colors";
 const subContentLimit = 200;
 function Question({ title, content, isSolved, tags, answers, views, id }) {
     let subsContent = content.text.substring(0, subContentLimit) + "...";
@@ -10,12 +9,15 @@ function Question({ title, content, isSolved, tags, answers, views, id }) {
         <>
             <Box
                 sx={{
+                    "&:hover": {
+                        background: "#F1F3F4",
+                    },
                     marginY: "10px",
                     display: "flex",
                     flexDirection: { xs: "column", sm: "row" },
                     width: "100%",
                     padding: "5px",
-                    border: "1px solid #ccc",
+                    border: `1px solid ${borderColor}`,
                 }}
             >
                 <Box
@@ -55,13 +57,14 @@ function Question({ title, content, isSolved, tags, answers, views, id }) {
                             id,
                         }}
                     >
-                        <Typography
+                        <Box
                             sx={{ cursor: "pointer" }}
-                            fontSize={"17px"}
-                            color={titleTextColor}
+                            fontSize={"16px"}
+                            color={"titleTextColor"}
+                            fontWeight={"500"}
                         >
                             {title}
-                        </Typography>
+                        </Box>
                     </Link>
                     <Typography fontSize={"13px"}>{subsContent}</Typography>
                     <Box sx={{ display: "flex", width: "100%" }}>

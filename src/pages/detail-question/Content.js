@@ -6,7 +6,8 @@ function Content({ title, content, tags }) {
     return (
         <Box>
             <Typography
-                fontSize={"18px"}
+                fontWeight={"500"}
+                variant="h5"
                 padding={"8px 0px"}
                 color={titleTextColor}
             >
@@ -26,7 +27,9 @@ function Content({ title, content, tags }) {
 
             <HtmlContentViewer body={content} />
 
-            <Tag tags={tags} />
+            <Box sx={{ paddingLeft: "20px" }}>
+                <Tag tags={tags} />
+            </Box>
         </Box>
     );
 }

@@ -1,7 +1,5 @@
-import { Box, Typography } from "@mui/material";
-import { ProgressBar } from "primereact/progressbar";
+import { Box, LinearProgress } from "@mui/material";
 
-import LoadingLogo from "../loading-logo/LoadingLogo";
 function TopBarLoading() {
     return (
         <>
@@ -15,10 +13,7 @@ function TopBarLoading() {
                     zIndex: "9999",
                 }}
             >
-                <ProgressBar
-                    mode="indeterminate"
-                    style={{ height: "2px" }}
-                ></ProgressBar>
+                <LinearProgress sx={{ maxHeight: "2px" }} />
             </Box>
         </>
     );

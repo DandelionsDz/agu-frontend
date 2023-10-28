@@ -5,14 +5,15 @@ import Content from "./Content";
 import Comment from "./Comment";
 import useQuestionId from "../../hooks/detail-question/useQuestionId";
 import SkeletonLoading from "./SkeletonLoading";
+import Error from "../main-layout/Error";
 
 function DetailQuestion() {
     let params = useParams();
     let { isLoading, error, question } = useQuestionId(params.id);
     if (isLoading) return <SkeletonLoading />;
-    if (error) return "An error has occurred: " + error.message;
+    if (error) return <Error />;
     return (
-        <Container sx={{ width: "100%", paddingTop: "20px" }}>
+        <Container maxWidth={"md"} sx={{ width: "100%" }}>
             <Box>
                 <Content
                     tags={question.tags}

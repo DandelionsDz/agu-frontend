@@ -1,18 +1,45 @@
 import { Box, Typography } from "@mui/material";
 import CircleLogo from "../../components/CircleLogo";
 import HtmlContentViewer from "./HtmlContentViewer";
-const borderColor = "#e3e6e8";
-const subTextColor = "#6a737c";
+import { useState } from "react";
+import { borderColor, subTextColor } from "../../utils/colors";
+import ContinueReadingButton from "./CountinueReadingButton";
+import { isMobile } from "react-device-detect";
+const charaecterLimit = isMobile ? 500 : 1200;
 function HumanAnswer({ answer }) {
+    let [isExpanded, setIsExpanded] = useState(
+        !(answer.content.length >= charaecterLimit * 1.2)
+    );
     return (
         <Box sx={{ marginY: "15px" }}>
-            <Box
-                width={"100%"}
-                border={`1px solid ${borderColor}`}
-                borderRadius={"5px"}
-            >
-                <Box sx={{ padding: "5px" }}>
-                    <HtmlContentViewer body={answer.content} />
+            <Box width={"100%"} borderBottom={`1px solid ${borderColor}`}>
+                <Box sx={{ padding: "5px", position: "relative" }}>
+                    <HtmlContentViewer
+                        body={
+                            isExpanded
+                                ? answer.content
+                                : answer.content.substr(0, charaecterLimit)
+                        }
+                    />
+                    {!isExpanded && (
+                        <Box
+                            sx={{
+                                background:
+                                    "linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                width: "100%",
+                                height: "70px",
+                                position: "absolute",
+                                bottom: "10px",
+                            }}
+                        >
+                            <ContinueReadingButton
+                                onClick={() => setIsExpanded(true)}
+                            />
+                        </Box>
+                    )}
                 </Box>
 
                 <Box

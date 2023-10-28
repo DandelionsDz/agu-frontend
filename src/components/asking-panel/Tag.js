@@ -4,9 +4,6 @@ function Tag({ tags }) {
     return (
         <Box>
             <Box sx={{ width: "100%", display: "flex", flexWrap: "wrap" }}>
-                <Typography paddingRight={"5px"} color={subTextColor}>
-                    tags:{" "}
-                </Typography>
                 {tags?.map((tag) => {
                     return (
                         <Typography
