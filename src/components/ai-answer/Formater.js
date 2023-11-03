@@ -1,6 +1,6 @@
 import CodeBlock from "./CodeBlock";
 
-function Formater({ children }) {
+function Formater({ children, style }) {
     let data = children.replaceAll("```", "```c0debl0ck");
     let dataArray = data.split("```");
     let isClosed = true;
@@ -15,7 +15,7 @@ function Formater({ children }) {
                             cleanData.indexOf("\n")
                         );
                         return (
-                            <CodeBlock key={i} language={language}>
+                            <CodeBlock style={style} key={i} language={language}>
                                 {cleanData}
                             </CodeBlock>
                         );

@@ -13,7 +13,7 @@ function DetailQuestion() {
     if (isLoading) return <SkeletonLoading />;
     if (error) return <Error />;
     return (
-        <Container maxWidth={"md"} sx={{ width: "100%" }}>
+        <Container maxWidth={"md"} sx={{ width: "100%"}}>
             <Box>
                 <Content
                     tags={question.tags}

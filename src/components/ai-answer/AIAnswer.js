@@ -12,11 +12,13 @@ import AnswerWrapper from "./AnswerWrapper.js";
 import { baseServer } from "../../consts/server.js";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import { borderColor } from "../../utils/colors.js";
+import { useNavigate } from "react-router-dom";
 
 const gradient =
     "radial-gradient( circle farthest-corner at 10% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90% );";
 
 function AIAnswer({ title, content, id }) {
+    const navigate = useNavigate();
     let {
         isLoading,
         error,
@@ -28,6 +30,10 @@ function AIAnswer({ title, content, id }) {
                 res.json()
             ),
     });
+
+    const handleAskMore = () => {
+        navigate("/chatbox");
+    };
 
     return (
         <Box
@@ -97,6 +103,7 @@ function AIAnswer({ title, content, id }) {
                                             }}
                                         >
                                             <Button
+                                                onClick={handleAskMore}
                                                 sx={{
                                                     textTransform: "none",
                                                     padding: "4px 10px",

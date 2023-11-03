@@ -10,10 +10,11 @@ import { isMobile } from "react-device-detect";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "antd";
+import AiChatBox from "../../pages/ai-chatbox/AiChatBox";
 function ServicePanel() {
     let [isDialogOpen, setIsDialogOpen] = useState(false);
     let navigate = useNavigate();
-    const handleOpenDialog = () => {
+    const handleOpenDialog = (dialog) => {
         if (!isMobile) {
             setIsDialogOpen(true);
             return;
@@ -25,12 +26,13 @@ function ServicePanel() {
         <>
             <Modal
                 onCancel={() => setIsDialogOpen(false)}
-                width={"1200px"}
+                width={"1000px"}
                 footer={null}
                 title="Tạo câu hỏi"
                 open={isDialogOpen}
+                styles={{height: "1000px"}}
             >
-                <PostQuestion />
+           <PostQuestion />
             </Modal>
             <Box
                 sx={{
@@ -112,7 +114,7 @@ function ServicePanel() {
                                 fontWeight={"500"}
                                 display={"flex"}
                                 justifyItems={"center"}
-                                onClick={() => handleOpenDialog()}
+                                onClick={() => handleOpenDialog(0)}
                             >
                                 <LiveHelpOutlinedIcon
                                     sx={{ marginRight: "3px" }}
@@ -132,6 +134,7 @@ function ServicePanel() {
                                 color={"#636466"}
                                 fontWeight={"500"}
                                 display={"flex"}
+                               
                             >
                                 <ChatBubbleOutlineOutlinedIcon
                                     sx={{ marginRight: "3px" }}

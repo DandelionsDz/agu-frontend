@@ -5,6 +5,7 @@ import App from "../App";
 import PostQuestion from "../pages/post-question/PostQuestion";
 import Welcome from "../pages/welcome/Welcome";
 import ErrorPage from "../pages/error-page/ErrorPage";
+import AiChatBox from "../pages/ai-chatbox/AiChatBox";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -27,8 +28,14 @@ const router = createBrowserRouter([
                 path: "/post-question",
                 element: <PostQuestion />,
             },
+          
         ],
     },
+    {
+        path: "/chatbox",
+        element: <AiChatBox />,
+    },
+  
 ]);
 
 export default router;

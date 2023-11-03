@@ -1,9 +1,9 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { stackoverflowLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { stackoverflowLight, androidstudio } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-const CodeBlock = ({ children, language }) => {
+const CodeBlock = ({ children, language,style }) => {
     return (
-        <SyntaxHighlighter language={language} style={stackoverflowLight}>
+        <SyntaxHighlighter language={language} style={style?androidstudio:stackoverflowLight}>
             {children}
         </SyntaxHighlighter>
     );
